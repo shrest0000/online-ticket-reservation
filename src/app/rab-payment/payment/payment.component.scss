@@ -1,0 +1,39 @@
+.payment{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+  .reservation-id{
+
+    .disable-reservation-id{
+      background-color: rgb(229, 116, 116);
+    }
+
+    .enable-reservation-id{
+      background-color: rgb(128, 240, 128);
+    }
+  }
+
+  .payment-actions{
+    display: flex;
+    flex-direction: row;
+
+    button{
+      margin: 20px;
+    }
+  }
+}
+.searchedReservation{
+  margin: 5%;
+
+  .searchedReservationDetails{
+    display: flex;
+    flex-direction: column;
+
+    .searchedReservationDetailsRows{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+}

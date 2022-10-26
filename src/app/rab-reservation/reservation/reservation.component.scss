@@ -1,0 +1,37 @@
+.reservation-table{
+  width: 90%;
+  height: 50%;
+  margin: 5%;
+  background-color: grey;
+
+  .reservation-table-head{
+    font-size: 18px;
+    text-align: left;
+  }
+}
+
+.reservation-table-actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.selected-movie{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: grey;
+  width: 80vw;
+  margin: 5%;
+
+  .selected-movie-details{
+    margin: 32px;
+  }
+  .selected-movie-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: large;
+  }
+}

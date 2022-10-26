@@ -1,0 +1,61 @@
+<div class="payment">
+  <div class="reservation-id">
+    <p>Reservation Id:</p>
+    <input
+      [ngClass]="
+        isReservationIdEnable
+          ? 'enable-reservation-id'
+          : 'disable-reservation-id'
+      "
+      type="text"
+      [attr.readonly]="isReservationIdEnable ? null : true"
+      [attr.disabled]="isReservationIdEnable ? null : true"
+      [(ngModel)]="reservationId"
+    />
+  </div>
+  <div class="payment-actions">
+    <button (click)="editReservationId()">Edit reservation id</button>
+    <button (click)="searchByReservationId()">Search reservation</button>
+  </div>
+</div>
+
+<div class="searchedReservation">
+  <div>
+    <p>Reserved movie detail</p>
+  </div>
+
+  <div class="searchedReservationDetails">
+    <div class="searchedReservationDetailsRows">
+      <div>
+        <p>Reserved movie:</p>
+        <div>{{ reservedMovie.movie }}</div>
+      </div>
+
+      <div>
+        <p>Movie show time:</p>
+        <div>{{ reservedMovie.showTime }}</div>
+      </div>
+    </div>
+
+    <div class="searchedReservationDetailsRows">
+      <div>
+        <p>Reservation quantity</p>
+        <p>{{ reservedMovie.reservedQty }}</p>
+      </div>
+      <div>
+        <div>
+          <p>Total price:</p>
+          <div>{{ reservedMovie.price }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="searchedReservationDetailsRows">
+      <button
+        [disabled]="reservedMovie.price <= 0 ? true : false"
+        (click)="onPayment()"
+      >
+        Dummy payment
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<table class="reservation-table">
+  <thead class="reservation-table-head">
+    <th *ngFor="let key of keys; index as dataIndex">
+      {{ key }}
+    </th>
+    <th>ACTIONS</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of dataRecords; index as dataIndex">
+      <td>
+        {{ record.movie }}
+      </td>
+      <td>
+        {{ record.showTime }}
+      </td>
+      <td>
+        {{ record.price }}
+      </td>
+      <td *ngIf="record.reservation">Available</td>
+      <td *ngIf="!record.reservation">Not available</td>
+      <td>
+        {{ record.reservationQty }}
+      </td>
+
+      <td class="reservation-table-actions">
+        <button (click)="onReserveMovie(record)">Reserve</button>
+      </td>
+    </tr>
+
+    <tr *ngIf="dataRecords.length === 0">
+      No Records Found
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isMovieSelected" class="selected-movie">
+  <div>
+    <div class="selected-movie-details">
+      <p>Selected movie:</p>
+      <ng-container>{{ selectedMovie.movie }}</ng-container>
+    </div>
+
+    <div class="selected-movie-details">
+      <p>Movie show time:</p>
+      <ng-container>{{ selectedMovie.showTime }}</ng-container>
+    </div>
+  </div>
+
+  <div>
+    <div class="selected-movie-details">
+      <p>Available reservation quantity {{ selectedMovie.reservationQty }}</p>
+      <input [(ngModel)]="reserveQty" type="number" />
+    </div>
+
+    <div class="selected-movie-details">
+      <p>Total price:</p>
+      <ng-container>{{ selectedMovie.price * reserveQty }}</ng-container>
+    </div>
+  </div>
+
+  <div class="selected-movie-action">
+    <button (click)="onReservation()">Proceed to payment</button>
+    <div *ngIf="!validReservation">Invalid number of reservation quantity</div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cotiviti Online Reservation</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">Logo</div>
+      <div class="prod-name">
+        <p>Online Reservation</p>
+      </div>
+      <div class="setings">
+        <button (click)="onLogout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="sidenav">
+        <div>
+          <a [routerLink]="['home']">Home</a>
+        </div>
+
+        <div>
+          <a [routerLink]="['reservation']">Reserve</a>
+        </div>
+
+        <div>
+          <a [routerLink]="['payment']">Payment</a>
+        </div>
+      </div>
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </body>
+</html>
